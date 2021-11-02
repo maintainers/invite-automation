@@ -63,11 +63,6 @@ wss.on('connection', (ws) => {
     ws.send(JSON.stringify(message));
   });
 
-  //send immediately a feedback to the incoming connection    
-  //send immediately a feedback to the incoming connection    
-  //send immediately a feedback to the incoming connection    
-  //send immediately a feedback to the incoming connection    
-  //send immediately a feedback to the incoming connection    
   ws.send('Hi there, I am a WebSocket server');
 });
 
@@ -122,6 +117,7 @@ async function openIssue(user) {
   const { status } = await octokit.request('POST /repos/{owner}/{repo}/issues', {
     owner: 'maintainers',
     repo: 'invite-automation',
+    labels: ['pending-invitation'],
     title: `Pending invitation request for: @${user}`,
     body: `Please take actions on adding the requested user to this repo:
     
