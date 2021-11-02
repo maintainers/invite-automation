@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node server/index.js",
-    "start:watch": "nodemon --watch index.js"
+    "start:watch": "nodemon --watch server/index.js"
   },
   "repository": {
     "type": "git",
@@ -19,13 +19,13 @@
   },
   "homepage": "https://github.com/maintainers/invite-automation#readme",
   "dependencies": {
-    "@octokit/webhooks": "^7.24.3",
-    "dotenv": "^8.6.0",
+    "@octokit/webhooks": "^7.11.2",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-ws": "^4.0.0",
     "http": "0.0.1-security",
-    "octokit": "^1.7.0",
-    "ws": "^7.5.5"
+    "octokit": "^1.5.0",
+    "ws": "^7.3.1"
   },
   "devDependencies": {
     "nodemon": "^2.0.14"
