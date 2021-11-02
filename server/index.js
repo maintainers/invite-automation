@@ -25,11 +25,11 @@ webhooks.on("*", ({ id, name, payload }) => {
   }
 
   // message = output;
-  
+
   // broadcast the message to all of the connected clients
   // wss is a server that contains clients which are an array
   // of all of the websocket connections
-  if(wss && wss.clients) {
+  if (wss && wss.clients) {
     wss.clients.forEach(client => {
       client.send(output)
     })
@@ -56,41 +56,47 @@ const server = app.listen(3000, () => console.log('Server started on port 3000')
 const wss = new WebSocket.Server({ server });
 
 wss.on('connection', (ws) => {
-    //connection is up, let's add a simple simple event
-    ws.on('message', (message) => {
-        //log the received message and send it back to the client
-        console.log('received: %s', message);
-        ws.send(JSON.stringify(message));
-    });
+  //connection is up, let's add a simple simple event
+  ws.on('message', (message) => {
+    //log the received message and send it back to the client
+    console.log('received: %s', message);
+    ws.send(JSON.stringify(message));
+  });
 
-    //send immediately a feedback to the incoming connection    
-    ws.send('Hi there, I am a WebSocket server');
+  //send immediately a feedback to the incoming connection    
+  //send immediately a feedback to the incoming connection    
+  //send immediately a feedback to the incoming connection    
+  //send immediately a feedback to the incoming connection    
+  //send immediately a feedback to the incoming connection    
+  ws.send('Hi there, I am a WebSocket server');
 });
 
 async function assignTeams(user) {
-  const {status} = await octokit.request("/orgs/{org}/members/{username}", {
+  const status = await octokit.request("/orgs/{org}/members/{username}", {
     username: user,
     org: "maintainers",
-  }).catch(err => { console.log(err) });
-
-  if (status === 204) {
-    console.log("user is part of org", status);
-    const employeeStatus = await checkForEmployee(user);
-    addUserToTeam(user, "Maintainers", employeeStatus);
-    console.log(employeeStatus);
+  }).catch(err => {
+    if (err.status === 404) {
+      console.log("user is not a team member but part of the org", err.status)
+      openIssue(user)
+    }
+    if (err.status === 302) {
+      console.log("user is not part of org", err.status);
+      openIssue(user)
+    }
+  });
+  if (status) {
+    if (status.status === 204) {
+      console.log("user is part of org", status.status);
+      const employeeStatus = await checkForEmployee(user);
+      addUserToTeam(user, "Maintainers", employeeStatus);
+    }
   }
 
-  if (status === 404) {
-    console.log("user is not a team member but part of the org", status);
-  }
-
-  if (status === 302) {
-    console.log("user is not part of org", status);
-  }
 }
 
 async function checkForEmployee(user) {
-  const {status} = await octokit.request('GET /orgs/{org}/teams/{team_slug}/memberships/{username}', {
+  const { status } = await octokit.request('GET /orgs/{org}/teams/{team_slug}/memberships/{username}', {
     org: 'github',
     team_slug: 'employees',
     username: user
@@ -112,27 +118,33 @@ async function checkForEmployee(user) {
 }
 
 
-async function openIssue() {
-    const {status} = await octokit.request('POST /repos/{owner}/{repo}/issues', {
-      owner: 'maintainers',
-      repo: 'invite-automation',
-      title: 'Add user to team',
-      body: 'Should we add this user to the repo?',
-    }).catch(err => { console.log(err) });
+async function openIssue(user) {
+  const { status } = await octokit.request('POST /repos/{owner}/{repo}/issues', {
+    owner: 'maintainers',
+    repo: 'invite-automation',
+    title: `Pending invitation request for: @${user}`,
+    body: `Please take actions on adding the requested user to this repo:
+    
+- [ ] Assign this ticket to the correct user
+- [ ] Confirm that @rizel-botany should be added as a member
+- [ ] Send an invite
 
-    if (status === 201) {
-      console.log("opened an issue", status);
-    }
-    if (status === 403) {
-      console.log("Forbidden", status);
-    }
-    if (status === 422) {
-      console.log("Unprocessable Entity", status);
-    }
+*This issue body is just a placeholder and will change as this project grows*`,
+  }).catch(err => { console.log(err) });
+
+  if (status === 201) {
+    console.log("opened an issue", status);
+  }
+  if (status === 403) {
+    console.log("Forbidden", status);
+  }
+  if (status === 422) {
+    console.log("Unprocessable Entity", status);
+  }
 }
 async function addUserToTeam(user, team, employeeStatus) {
   const team_slug = employeeStatus ? 'github-employees' : 'members';
-  const {status} = await octokit.request('PUT /orgs/{org}/teams/{team_slug}/memberships/{username}', {
+  const { status } = await octokit.request('PUT /orgs/{org}/teams/{team_slug}/memberships/{username}', {
     org: 'maintainers',
     team_slug: team_slug,
     username: user,
