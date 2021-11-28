@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "description": "an app that automate invites to teams via interacting with a repo",
-  "author": "GitHub <undefined>",
+  "author": "GitHub blackgirlbytes",
   "license": "ISC",
   "homepage": "https://github.com/blackgirlbytes/invite-automation",
   "keywords": [

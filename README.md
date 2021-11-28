@@ -30,4 +30,4 @@ For more, check out the [Contributing Guide](CONTRIBUTING.md).
 
 ## License
 
-[ISC](LICENSE) © 2021 GitHub <undefined>
+[ISC](LICENSE) © 2021 GitHub blackgirlbytes
