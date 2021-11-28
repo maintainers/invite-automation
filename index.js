@@ -1,6 +1,6 @@
 const { Octokit } = require("octokit");
 const octokit = new Octokit({
-  auth: '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',
+  auth: process.env.GITHUB_TOKEN,
 })
 /**
  * This is the main entrypoint to your Probot app
@@ -91,7 +91,7 @@ async function assignTeams(user) {
       openIssue(user);
     }
   });
-  
+
   if (result) {
     if (result.status === 204) {
       console.log("user is part of org", result);
