@@ -1,7 +1,8 @@
 const { Octokit } = require("octokit");
 const octokit = new Octokit({
-  auth: process.env.GITHUB_TOKEN,
-  appId: process.env.APP_ID
+  auth: {
+    appId: process.env.APP_ID
+  }
 })
 /**
  * This is the main entrypoint to your Probot app
