@@ -1,8 +1,7 @@
-node_modules/
+node_modules
+npm-debug.log
+*.pem
+!mock-cert.pem
 .env
-.vercel
-
-# Ignore Mac DS_Store files
-.DS_Store
-**/.DS_Store
-
+coverage
+lib
