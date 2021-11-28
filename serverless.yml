@@ -1,0 +1,21 @@
+ service: lambda-probot-express
+
+ provider:
+   name: aws
+   runtime: nodejs14.x
+   region: us-east-1
+
+ functions:
+   router:
+     handler: handler.probot
+
+     environment:
+       # replace values with one\'s associated to your app
+       WEBHOOK_SECRET: my-secret
+       APP_ID: 154856
+       LOG_FORMAT: json 
+
+     events:
+       - http:
+          path: /probot
+          method: post
