@@ -115,7 +115,7 @@ module.exports = (app) => {
     const user = context.payload.sender.login
     app.log.info('opening an issue')
     if (user) {
-      await assignTeams(user)
+      console.log('testing this!!!')
     }
   });
 };
