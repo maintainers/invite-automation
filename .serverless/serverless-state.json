@@ -6,7 +6,7 @@
     },
     "provider": {
       "name": "aws",
-      "runtime": "nodejs14.x",
+      "runtime": "nodejs12.x",
       "region": "us-east-1",
       "stage": "dev",
       "versionFunctions": true,
@@ -173,10 +173,10 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/lambda-probot-express/dev/1638131020628-2021-11-28T20:23:40.628Z/lambda-probot-express.zip"
+                "S3Key": "serverless/lambda-probot-express/dev/1638381510598-2021-12-01T17:58:30.598Z/lambda-probot-express.zip"
               },
-              "Handler": "handler.probot",
-              "Runtime": "nodejs14.x",
+              "Handler": "handler.webhooks",
+              "Runtime": "nodejs12.x",
               "FunctionName": "lambda-probot-express-dev-router",
               "MemorySize": 1024,
               "Timeout": 6,
@@ -184,6 +184,7 @@
                 "Variables": {
                   "WEBHOOK_SECRET": "my-secret",
                   "APP_ID": "154856",
+                  "PRIVATE_KEY": "-----BEGIN RSA PRIVATE KEY-----\nMIIEpQIBAAKCAQEA9wuOx8tOT4JK7qQ3Ai3RMx7k7Aw7ho2KJeVRyLNG8g3TiBtN\npB+WIrQQ3NXqC1f55hnMokVSRvJOCtm/oyg60J0OSZ8e6BIXPDMfBBcKEEmTVmQi\nN5BK5tcgR0kZvahQKS9HCkzlTxEOemoFQhzKli0gNiaH93pmt6Aq6+Bf2yboczfW\n1qSYiJSeEjDTKUUgPOJMy9EzajYe6IuKOOva7DWruorw8YOfDGQ9Pcs470ft4NJ6\nbr7Q2sNbtBUWOc4wCWzMH7lv7bhjNlapNlYNKFWZCi2M2I0IcQwLiPpiI3KS/YK5\nDwo4g4h2NpkOORI2ytnaqyKZIR3kConY3tOTCwIDAQABAoIBAQDm/4eiihfPgKVQ\nP3ywLOdQRbMIhOekCPUEOkkewYO1EfiZa+5NaLuZ94VM+Ti/IqQo5DbUBL3KWQdg\nXfszNIrKRhD2BjOADGptf9+gk2p1kFaUkUztZ56h+sXT4iaPkLJj0DE9EGnaZLiE\n/l2sU/+aLNfRynWYkns5eCqqJEN9Ri34E9FF9sd8HlQHjkC0WACd6DwSmzLCBQW0\nylqRXJ3drD4VKb+fLXF2nPG8OKy92IFJyjZBHorWdXlofigT1KACYNT/bTA4LIt3\nTImZieCtxIz1Ajjk524BOFcfFM2w+/tAVxVKTcV2xDoEpGcrnRzEi5D505tzIA5I\n+XTrbgYBAoGBAP+APwYOWr9d2QAmP1G1+DEke1QUPZWdvWFxnkP1P8CJU/zZeuAK\nnC8EOW4uGdPoVCogxi2HVdmrgTVhh0OnKE8+ubJs/hQgzDkcrE3laJ4BVr7iQjjR\ntseToFavFlRbx+gTg5f8M3Zisl7DjkF4bUJFndH++qZ5iJDiTy591W5zAoGBAPeH\nFWJjMQ+hSLeQXK8GYW7v3BoGfDMh7a3ZhEU2eYIDZApPt+ITf8PVTt4yI6ej31Ck\nD4IyDROSLm6nE29OWbr/Xdj+yZje2W8QV1Y1+eQGWvsRh/Hf7yw96Yhe/N1/K8C4\nMMSxo8KCppCHGdtBw0QN0ngj6l2SWMLgiyaMbUsJAoGBAPenM2+HUmbTbJc8e3uU\nSnI3zmL9C4SOVRayrploitbxRbt8giHPpvvbuF8XyGkidRIwmmdfGtPV7XP0iMwG\npofJYO2Vv+F6uPlS1aDbkMA2xAJaBZ5ViDmC2pOrOpWiMO6+m3siNi+2EvbPzn+f\nXygxmnwGDqZ2fu0Qr3d8+PgJAoGBAOM7A/uNOaWylvHEugEG530S/sh5eZzrIak+\nDLoJFySufjElG5aT9e9OK5e5CZhEzKXX5lDMJ8r2oF9+S04b7C3JblrdEy6eLZdS\ntgpzhJK67tybLGR0AblooLFLGfEwZHcH3+VBeib/D2+QRsFMLriTw8n8lpMN3SQR\nREzADzkZAoGAU0Vev9R1I2UTgpKYZgKiefmINx8YrQPBTmECnBboQhDUQefatHbs\n4fHpUfxNDj7gtrKUkPAiGtH9OhP/kaLOz4+Q1CKnX+3fr6HB6O80KeJrLUI6PVUj\nkHH7ig2tI7sYFELuMoRiIz03LMv4WaOUfrJqf+r9sdz8uLTcihqkcFs=\n-----END RSA PRIVATE KEY-----",
                   "LOG_FORMAT": "json"
                 }
               },
@@ -198,14 +199,14 @@
               "RouterLogGroup"
             ]
           },
-          "RouterLambdaVersionnsYlp6eYucMpe4lKTC1cCoiJSMgwdGrCeEU8dvrXKU": {
+          "RouterLambdaVersionHbd8SgPtmnhLR0cxxQ4undcgtQHL2VWIlMZrypnlNM": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "RouterLambdaFunction"
               },
-              "CodeSha256": "43n4ZQ8Ne/jCUyGZybNYFfHflnuPVxH5LEDsMzGF9Xw="
+              "CodeSha256": "TXlRW2+wKTsn1iA986Nd6kRjDZVIOZuhL0JAAljbhcI="
             }
           },
           "ApiGatewayRestApi": {
@@ -220,7 +221,7 @@
               "Policy": ""
             }
           },
-          "ApiGatewayResourceProbot": {
+          "ApiGatewayResourceApi": {
             "Type": "AWS::ApiGateway::Resource",
             "Properties": {
               "ParentId": {
@@ -229,19 +230,43 @@
                   "RootResourceId"
                 ]
               },
-              "PathPart": "probot",
+              "PathPart": "api",
               "RestApiId": {
                 "Ref": "ApiGatewayRestApi"
               }
             }
           },
-          "ApiGatewayMethodProbotPost": {
+          "ApiGatewayResourceApiGithub": {
+            "Type": "AWS::ApiGateway::Resource",
+            "Properties": {
+              "ParentId": {
+                "Ref": "ApiGatewayResourceApi"
+              },
+              "PathPart": "github",
+              "RestApiId": {
+                "Ref": "ApiGatewayRestApi"
+              }
+            }
+          },
+          "ApiGatewayResourceApiGithubWebhooks": {
+            "Type": "AWS::ApiGateway::Resource",
+            "Properties": {
+              "ParentId": {
+                "Ref": "ApiGatewayResourceApiGithub"
+              },
+              "PathPart": "webhooks",
+              "RestApiId": {
+                "Ref": "ApiGatewayRestApi"
+              }
+            }
+          },
+          "ApiGatewayMethodApiGithubWebhooksPost": {
             "Type": "AWS::ApiGateway::Method",
             "Properties": {
               "HttpMethod": "POST",
               "RequestParameters": {},
               "ResourceId": {
-                "Ref": "ApiGatewayResourceProbot"
+                "Ref": "ApiGatewayResourceApiGithubWebhooks"
               },
               "RestApiId": {
                 "Ref": "ApiGatewayRestApi"
@@ -281,7 +306,7 @@
               "RouterLambdaPermissionApiGateway"
             ]
           },
-          "ApiGatewayDeployment1638131011036": {
+          "ApiGatewayDeployment1638381502991": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -290,7 +315,7 @@
               "StageName": "dev"
             },
             "DependsOn": [
-              "ApiGatewayMethodProbotPost"
+              "ApiGatewayMethodApiGithubWebhooksPost"
             ]
           },
           "RouterLambdaPermissionApiGateway": {
@@ -343,7 +368,7 @@
           "RouterLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "RouterLambdaVersionnsYlp6eYucMpe4lKTC1cCoiJSMgwdGrCeEU8dvrXKU"
+              "Ref": "RouterLambdaVersionHbd8SgPtmnhLR0cxxQ4undcgtQHL2VWIlMZrypnlNM"
             },
             "Export": {
               "Name": "sls-lambda-probot-express-dev-RouterLambdaFunctionQualifiedArn"
@@ -464,16 +489,17 @@
     "pluginsData": {},
     "functions": {
       "router": {
-        "handler": "handler.probot",
+        "handler": "handler.webhooks",
         "environment": {
           "WEBHOOK_SECRET": "my-secret",
           "APP_ID": "154856",
+          "PRIVATE_KEY": "-----BEGIN RSA PRIVATE KEY-----\nMIIEpQIBAAKCAQEA9wuOx8tOT4JK7qQ3Ai3RMx7k7Aw7ho2KJeVRyLNG8g3TiBtN\npB+WIrQQ3NXqC1f55hnMokVSRvJOCtm/oyg60J0OSZ8e6BIXPDMfBBcKEEmTVmQi\nN5BK5tcgR0kZvahQKS9HCkzlTxEOemoFQhzKli0gNiaH93pmt6Aq6+Bf2yboczfW\n1qSYiJSeEjDTKUUgPOJMy9EzajYe6IuKOOva7DWruorw8YOfDGQ9Pcs470ft4NJ6\nbr7Q2sNbtBUWOc4wCWzMH7lv7bhjNlapNlYNKFWZCi2M2I0IcQwLiPpiI3KS/YK5\nDwo4g4h2NpkOORI2ytnaqyKZIR3kConY3tOTCwIDAQABAoIBAQDm/4eiihfPgKVQ\nP3ywLOdQRbMIhOekCPUEOkkewYO1EfiZa+5NaLuZ94VM+Ti/IqQo5DbUBL3KWQdg\nXfszNIrKRhD2BjOADGptf9+gk2p1kFaUkUztZ56h+sXT4iaPkLJj0DE9EGnaZLiE\n/l2sU/+aLNfRynWYkns5eCqqJEN9Ri34E9FF9sd8HlQHjkC0WACd6DwSmzLCBQW0\nylqRXJ3drD4VKb+fLXF2nPG8OKy92IFJyjZBHorWdXlofigT1KACYNT/bTA4LIt3\nTImZieCtxIz1Ajjk524BOFcfFM2w+/tAVxVKTcV2xDoEpGcrnRzEi5D505tzIA5I\n+XTrbgYBAoGBAP+APwYOWr9d2QAmP1G1+DEke1QUPZWdvWFxnkP1P8CJU/zZeuAK\nnC8EOW4uGdPoVCogxi2HVdmrgTVhh0OnKE8+ubJs/hQgzDkcrE3laJ4BVr7iQjjR\ntseToFavFlRbx+gTg5f8M3Zisl7DjkF4bUJFndH++qZ5iJDiTy591W5zAoGBAPeH\nFWJjMQ+hSLeQXK8GYW7v3BoGfDMh7a3ZhEU2eYIDZApPt+ITf8PVTt4yI6ej31Ck\nD4IyDROSLm6nE29OWbr/Xdj+yZje2W8QV1Y1+eQGWvsRh/Hf7yw96Yhe/N1/K8C4\nMMSxo8KCppCHGdtBw0QN0ngj6l2SWMLgiyaMbUsJAoGBAPenM2+HUmbTbJc8e3uU\nSnI3zmL9C4SOVRayrploitbxRbt8giHPpvvbuF8XyGkidRIwmmdfGtPV7XP0iMwG\npofJYO2Vv+F6uPlS1aDbkMA2xAJaBZ5ViDmC2pOrOpWiMO6+m3siNi+2EvbPzn+f\nXygxmnwGDqZ2fu0Qr3d8+PgJAoGBAOM7A/uNOaWylvHEugEG530S/sh5eZzrIak+\nDLoJFySufjElG5aT9e9OK5e5CZhEzKXX5lDMJ8r2oF9+S04b7C3JblrdEy6eLZdS\ntgpzhJK67tybLGR0AblooLFLGfEwZHcH3+VBeib/D2+QRsFMLriTw8n8lpMN3SQR\nREzADzkZAoGAU0Vev9R1I2UTgpKYZgKiefmINx8YrQPBTmECnBboQhDUQefatHbs\n4fHpUfxNDj7gtrKUkPAiGtH9OhP/kaLOz4+Q1CKnX+3fr6HB6O80KeJrLUI6PVUj\nkHH7ig2tI7sYFELuMoRiIz03LMv4WaOUfrJqf+r9sdz8uLTcihqkcFs=\n-----END RSA PRIVATE KEY-----",
           "LOG_FORMAT": "json"
         },
         "events": [
           {
             "http": {
-              "path": "probot",
+              "path": "api/github/webhooks",
               "method": "post",
               "integration": "AWS_PROXY"
             }
@@ -483,9 +509,9 @@
         "package": {},
         "memory": 1024,
         "timeout": 6,
-        "runtime": "nodejs14.x",
+        "runtime": "nodejs12.x",
         "vpc": {},
-        "versionLogicalId": "RouterLambdaVersionnsYlp6eYucMpe4lKTC1cCoiJSMgwdGrCeEU8dvrXKU"
+        "versionLogicalId": "RouterLambdaVersionHbd8SgPtmnhLR0cxxQ4undcgtQHL2VWIlMZrypnlNM"
       }
     },
     "configValidationMode": "warn",
@@ -506,7 +532,7 @@
     "artifact": "/workspaces/invite-automation/.serverless/lambda-probot-express.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/lambda-probot-express/dev/1638131020628-2021-11-28T20:23:40.628Z",
+    "artifactDirectoryName": "serverless/lambda-probot-express/dev/1638381510598-2021-12-01T17:58:30.598Z",
     "artifact": "lambda-probot-express.zip"
   }
 }
