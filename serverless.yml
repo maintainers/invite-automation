@@ -10,8 +10,7 @@
      handler: handler.webhooks
 
      environment:
-       # replace values with one\'s associated to your app
-       WEBHOOK_SECRET: my-secret
+       WEBHOOK_SECRET: ${ssm:/webhook_secret}
        APP_ID: ${ssm:/app_id}
        PRIVATE_KEY: ${ssm:/privateKey}
        LOG_FORMAT: json 

@@ -173,7 +173,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/lambda-probot-express/dev/1638381510598-2021-12-01T17:58:30.598Z/lambda-probot-express.zip"
+                "S3Key": "serverless/lambda-probot-express/dev/1638582368546-2021-12-04T01:46:08.546Z/lambda-probot-express.zip"
               },
               "Handler": "handler.webhooks",
               "Runtime": "nodejs12.x",
@@ -199,14 +199,14 @@
               "RouterLogGroup"
             ]
           },
-          "RouterLambdaVersionHbd8SgPtmnhLR0cxxQ4undcgtQHL2VWIlMZrypnlNM": {
+          "RouterLambdaVersiony6F4Efe86vJfA0ywo8AwuzEVNKOxZsOl02xS8MnAyE": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "RouterLambdaFunction"
               },
-              "CodeSha256": "TXlRW2+wKTsn1iA986Nd6kRjDZVIOZuhL0JAAljbhcI="
+              "CodeSha256": "7/EPPr3ZgBvS/mV8Im1aDaqcvAN/sr/tr5KWt1X1qxg="
             }
           },
           "ApiGatewayRestApi": {
@@ -306,7 +306,7 @@
               "RouterLambdaPermissionApiGateway"
             ]
           },
-          "ApiGatewayDeployment1638381502991": {
+          "ApiGatewayDeployment1638582359084": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -368,7 +368,7 @@
           "RouterLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "RouterLambdaVersionHbd8SgPtmnhLR0cxxQ4undcgtQHL2VWIlMZrypnlNM"
+              "Ref": "RouterLambdaVersiony6F4Efe86vJfA0ywo8AwuzEVNKOxZsOl02xS8MnAyE"
             },
             "Export": {
               "Name": "sls-lambda-probot-express-dev-RouterLambdaFunctionQualifiedArn"
@@ -511,7 +511,7 @@
         "timeout": 6,
         "runtime": "nodejs12.x",
         "vpc": {},
-        "versionLogicalId": "RouterLambdaVersionHbd8SgPtmnhLR0cxxQ4undcgtQHL2VWIlMZrypnlNM"
+        "versionLogicalId": "RouterLambdaVersiony6F4Efe86vJfA0ywo8AwuzEVNKOxZsOl02xS8MnAyE"
       }
     },
     "configValidationMode": "warn",
@@ -532,7 +532,7 @@
     "artifact": "/workspaces/invite-automation/.serverless/lambda-probot-express.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/lambda-probot-express/dev/1638381510598-2021-12-01T17:58:30.598Z",
+    "artifactDirectoryName": "serverless/lambda-probot-express/dev/1638582368546-2021-12-04T01:46:08.546Z",
     "artifact": "lambda-probot-express.zip"
   }
 }

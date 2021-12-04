@@ -16,9 +16,12 @@
     "test": "jest"
   },
   "dependencies": {
-    "@probot/adapter-aws-lambda-serverless": "^3.0.0",
-    "@probot/serverless-lambda": "^1.0.2",
+    "@octokit/auth-app": "^3.6.1",
+    "@octokit/core": "^3.5.1",
+    "@probot/adapter-aws-lambda-serverless": "^3.0.1-beta.1",
+    "aws-sdk": "^2.1040.0",
     "octokit": "^1.7.1",
+    "octokit-auth-probot": "^1.2.6",
     "probot": "^11.0.1"
   },
   "devDependencies": {
