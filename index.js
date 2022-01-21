@@ -119,6 +119,7 @@ module.exports = (app) => {
     const user = context.payload.sender.login
     if (user) {
       console.log('user is not null', user)
+      console.log(context.payload.sender)
       await assignTeams(user, octokit);
     }
   });
