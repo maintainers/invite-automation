@@ -19,6 +19,7 @@ async function checkForEmployee(user, octokit) {
   if (result) {
     if (result.status === 200) {
       console.log('determining if user is an employee', result.status)
+      console.log(result.data)
       employeeStatus = result.data.site_admin
     }
   }
