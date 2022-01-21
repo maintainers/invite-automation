@@ -19,6 +19,7 @@ async function checkForEmployee(user, octokit) {
   if (result) {
     if (result.status === 200) {
       console.log('determining if user is an employee', result.status)
+      console.log(result.data)
       employeeStatus = result.data.site_admin
     }
   }
@@ -118,6 +119,7 @@ module.exports = (app) => {
     const user = context.payload.sender.login
     if (user) {
       console.log('user is not null', user)
+      console.log(context.payload.sender)
       await assignTeams(user, octokit);
     }
   });
