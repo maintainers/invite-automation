@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: take an issue
-        uses: bdougie/take-action@main
+        uses: blackgirlbytes/take-action@main
         env:
           GITHUB_TOKEN: ${{ github.token }}
         with:
