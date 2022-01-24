@@ -57,10 +57,10 @@ async function openIssue(user, octokit) {
     repo: 'invite-automation',
     labels: ['pending-invitation'],
     title: `Pending invitation request for: @${user}`,
-    body: `Please take actions on adding the requested user to this repo:
-- [ ] Assign this ticket to the correct user
-- [ ] Confirm that @${user} should be added as a member
-- [ ] Send an invite
+    body: `Hi!  @${user}. Thanks for your interest in join this organization. To be added to this organization. Please respond with a comment below to the following questions. (Please note that failure to respond to all items will result in a closed issue):
+- [ ] What is the name of the project you maintain?
+- [ ] What is the URL to your GitHub repository?
+- [ ] Why do you want to join the maintainers organization? 
 *This issue body is just a placeholder and will change as this project grows*`,
   }).catch(err => {
     console.log('err', err)
