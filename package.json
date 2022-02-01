@@ -16,9 +16,12 @@
     "test": "jest"
   },
   "dependencies": {
+    "@octokit/core": "^3.5.1",
     "@probot/adapter-aws-lambda-serverless": "^3.0.0",
     "@probot/serverless-lambda": "^1.0.2",
+    "dotenv": "^15.0.0",
     "octokit": "^1.7.1",
+    "octokit-plugin-create-pull-request": "^3.10.0",
     "probot": "^11.0.1"
   },
   "devDependencies": {

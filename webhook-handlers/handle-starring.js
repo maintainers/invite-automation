@@ -11,7 +11,6 @@ const { createAppAuth } = require("@octokit/auth-app");
 
 async function checkForEmployee(user, octokit) {
   let employeeStatus
-  console.log('checking for employee')
   const result = await octokit.request('GET /users/{username}', {
     username: user
   }).catch(async (err) => {
@@ -21,8 +20,6 @@ async function checkForEmployee(user, octokit) {
   });
   if (result) {
     if (result.status === 200) {
-      console.log('determining if user is an employee', result.status)
-      console.log('result data', result.data)
       employeeStatus = result.data.site_admin
     }
   }
@@ -103,26 +100,23 @@ async function assignTeams(user, octokit) {
     }
   }
 }
-async function handleStarringRepo (app, context) {
-    const { appIdData, privateKeyData, clientIdData, clientSecretData } = await require("./ssm-handler");
-    const octokit = new Octokit({
-      authStrategy: createAppAuth,
-      auth: {
-        appId: await appIdData,
-        privateKey: await privateKeyData,
-        clientId: await clientIdData,
-        clientSecret: await clientSecretData,
-        installationId: context.payload.installation.id
-      },
-    });
 
-    console.log(`the repo was starred by: ${context.payload.sender.login}`)
-    const user = context.payload.sender.login
-    if (user) {
-      console.log('user is not null', user)
-      console.log('printing the context', context)
-      console.log('printing the payload', context.payload)
-      console.log('printing the sender', context.payload.sender)
-      await assignTeams(user, octokit);
-    }
+async function handleStarringRepo(app, context) {
+  const { appIdData, privateKeyData, clientIdData, clientSecretData } = await require("./ssm-handler");
+  const octokit = new Octokit({
+    authStrategy: createAppAuth,
+    auth: {
+      appId: await appIdData,
+      privateKey: await privateKeyData,
+      clientId: await clientIdData,
+      clientSecret: await clientSecretData,
+      installationId: context.payload.installation.id
+    },
+  });
+
+  console.log(`the repo was starred by: ${context.payload.sender.login}`)
+  const user = context.payload.sender.login
+  if (user) {
+    await assignTeams(user, octokit);
+  }
 }
