@@ -41,6 +41,15 @@ module.exports = (async function () {
         if (err) console.log(err, err.stack); // an error occurred
         return data.Parameter.Value           // successful response
     })
+    const personalAccessTokenOptions = {
+        Name: 'personal_access_token',
+        WithDecryption: true
+    };
+    const personalAccessTokenPromise = ssm.getParameter(personalAccessTokenOptions).promise();
+    const personalAccessTokenData = personalAccessTokenPromise.then(function (data, err) {
+        if (err) console.log(err, err.stack); // an error occurred
+        return data.Parameter.Value           // successful response
+    })
 
-    return await { appIdData, privateKeyData, clientIdData, clientSecretData }
+    return await { appIdData, privateKeyData, clientIdData, clientSecretData, personalAccessTokenData }
 })();

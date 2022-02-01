@@ -1,7 +1,7 @@
 module.exports = invite;
 
-const handleStarringRepo = require("./handle-starring.js");
-const handleCommentingOnIssue = require("./handle-comments-on-issue.js");
+const handleStarringRepo = require("./webhook-handlers/handle-starring.js");
+const handleCommentingOnIssue = require("./webhook-handlers/handle-comments-on-issue.js");
 
 /**
  * @param {import('probot').Probot} app
