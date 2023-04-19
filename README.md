@@ -1,3 +1,9 @@
+**Update:** The Maintainer Community has moved to [github.com/community/maintainers](github.com/community/maintainers)
+
+Instead of following the old instructions below, request an invitation at [maintainers.github.com](maintainers.github.com)
+
+--------------------
+
 # Use the Invite Automation Repo to Join The Maintainers Organization
 
 > The maintainers organization is designed to provide a safe space for open source maintainers on GitHub to share their experiences and get to know each other.
